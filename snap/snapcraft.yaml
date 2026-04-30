@@ -123,7 +123,7 @@ parts:
       - libgtk-3-dev
     stage-packages:
       - libsdl2-2.0-0
-      - libglew2.0
+      - libglew2.2
     override-build: |
       cd ${CRAFT_PART_SRC}/platforms/linux
       make -j $(nproc)
