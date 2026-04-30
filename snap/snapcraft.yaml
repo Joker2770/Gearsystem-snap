@@ -113,7 +113,7 @@ parts:
     source-tag: "3.8.6"
     source-subdir: platforms/linux
     # source: ../
-    artifacts: [gearsystem]
+    # artifacts: [gearsystem]
     build-packages:
       - gcc
       - make
@@ -124,4 +124,9 @@ parts:
     stage-packages:
       - libsdl2-2.0-0
       - libglew2.0
+    override-build: |
+      cd ${CRAFT_PART_SRC}/platforms/linux
+      make -j $(nproc)
+      mkdir -p ${CRAFT_PART_INSTALL}/usr/local/bin
+      cp ./gearsystem ${CRAFT_PART_INSTALL}/usr/local/bin/
 
